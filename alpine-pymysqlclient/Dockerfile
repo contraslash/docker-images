@@ -5,6 +5,7 @@ RUN apk add gcc
 RUN apk add mariadb-dev
 RUN apk add mariadb-client
 RUN apk add mysql-client
+RUN apk add musl-dev
 
 ENV PYTHONUNBUFFERED 1
 
