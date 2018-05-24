@@ -9,5 +9,6 @@ RUN apk add --no-cache postgresql-dev
 ENV PYTHONUNBUFFERED 1
 
 RUN pip install psycopg2
+RUN pip install psycopg2-binary
 
 CMD ["python3"]
