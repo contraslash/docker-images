@@ -1,12 +1,18 @@
-FROM python:3.6-alpine
-RUN apk update
-RUN apk add --no-cache linux-headers binutils gcc musl-dev mariadb-dev mariadb-client mysql-client build-base jpeg-dev \
-  zlib-dev pcre-dev uwsgi uwsgi-python libffi-dev
+FROM python:3.7-alpine
 
-ENV LIBRARY_PATH=/lib:/usr/lib
+MAINTAINER ma0c <ma0@contraslash.com>
 
-ENV PYTHONUNBUFFERED 1
+LABEL maintainer="ma0c <ma0@contraslash.com>" \
+    org.label-schema.name="Alpine Django Deploy Common" \
+    org.label-schema.description="A base image to build Django images on top of Alpine Linux" \
+    org.label-schema.url="https://contraslash.com" \
+    org.label-schema.vcs-url="https://github.com/contraslash/docker-images/tree/master/alpine-django-deploy-common-s3"
 
-RUN pip install --no-cache-dir uwsgi==2.0.17 boto3==1.9.20 django-storages==1.7.1 cryptography==2.3.1
+RUN apk update && \
+    apk add --no-cache --virtual .build-deps linux-headers binutils gcc musl-dev zlib-dev pcre-dev build-base && \
+    apk add mariadb-dev mariadb-client  jpeg-dev uwsgi uwsgi-python3 libffi-dev && \
+    LIBRARY_PATH=/lib:/usr/lib pip install --no-cache-dir \
+        uwsgi==2.0.18 boto3==1.9.130 django-storages==1.7.1 cryptography==2.6.1 && \
+    apk del .build-deps
 
 CMD ["python3"]

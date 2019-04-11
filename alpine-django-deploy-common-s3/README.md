@@ -8,8 +8,10 @@ A minimal Alpine Linux Docker Image with the essential to deploy a common django
 CMD ["uwsgi", "--ini", "uwsgi.ini"]
 ```
 
+## Local building
 
-To build a local version 
-```bash 
+```bash
 docker build -t contraslash/alpine-django-deploy-common-s3 .
+docker push 
+
 ```
