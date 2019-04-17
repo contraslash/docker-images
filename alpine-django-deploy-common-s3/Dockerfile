@@ -12,7 +12,7 @@ RUN apk update && \
     apk add --no-cache --virtual .build-deps linux-headers binutils gcc musl-dev zlib-dev pcre-dev build-base && \
     apk add mariadb-dev mariadb-client  jpeg-dev uwsgi uwsgi-python3 libffi-dev && \
     LIBRARY_PATH=/lib:/usr/lib pip install --no-cache-dir \
-        uwsgi==2.0.18 boto3==1.9.130 django-storages==1.7.1 cryptography==2.6.1 && \
+        uwsgi==2.0.18 boto3==1.9.130 django-storages==1.7.1 cryptography==2.6.1 mysqlclient==1.4.2 && \
     apk del .build-deps
 
 CMD ["python3"]
