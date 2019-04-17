@@ -22,7 +22,6 @@ CMD ["uwsgi", "--ini", "uwsgi.ini"]
 
 ```
 
-
 `uswgi.ini` is a uWSGI configuration file example and the entry point should be something like
 
 ```
@@ -38,6 +37,15 @@ harakiri=20
 single-interpreter=True
 enable-threads=True
 buffer-size=32768
+```
+
+Also this image uses mysql so, remember to create a database
+
+```sql
+CREATE DATABASE ${project_name};
+CREATE USER ${project_name}_user identified by '${random_password}';
+GRANT ALL PRIVILEGES ON ${project_name}.* to ${project_name}_user;
+FLUSH PRIVILEGES;
 ```
 
 ## Local building
