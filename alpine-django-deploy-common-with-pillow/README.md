@@ -1,6 +1,6 @@
-# Alpine Django Deploy Common
+# Alpine Django Deploy Common with Pillow
 
-A minimal Alpine Linux Docker Image with the essential to deploy a common django project, that include Mysql and uWSGI to deploy.
+A minimal Alpine Linux Docker Image with the essential to deploy a common django project, that include Mysql, Pillow and uWSGI to deploy.
 
 ## Usage
 
@@ -26,7 +26,9 @@ Remember tu use the exact same version in your requirements.txt file
 
 ```text
 mysqlclient==1.4.2 
+pillow==6.0.0
 uwsgi==2.0.18 
+
 ```
 
 `uswgi.ini` is a uWSGI configuration file example and the entry point should be something like
@@ -46,8 +48,6 @@ enable-threads=True
 buffer-size=32768
 ```
 
-
-
 Also this image uses mysql so, remember to create a database
 
 ```sql
@@ -60,7 +60,7 @@ FLUSH PRIVILEGES;
 ## Local building
 
 ```bash
-docker build -t contraslash/alpine-django-deploy-common .
+docker build -t contraslash/alpine-django-deploy-common-with-pillow .
 ```
 
 ## Contributing

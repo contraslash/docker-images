@@ -3,7 +3,7 @@ FROM python:3.7-alpine
 MAINTAINER ma0c <ma0@contraslash.com>
 
 LABEL maintainer="ma0c <ma0@contraslash.com>" \
-    org.label-schema.name="Alpine Django Deploy Common" \
+    org.label-schema.name="Alpine Django Deploy Common S3 Ready" \
     org.label-schema.description="A base image to build Django images on top of Alpine Linux" \
     org.label-schema.url="https://contraslash.com" \
     org.label-schema.vcs-url="https://github.com/contraslash/docker-images/tree/master/alpine-django-deploy-common-s3"

@@ -9,6 +9,7 @@ CMD ["uwsgi", "--ini", "uwsgi.ini"]
 ```
 
 ## Usage
+
 Be sure your requirements files have this two `requirements.txt` with this exacts versions to
 optimize building time:
 

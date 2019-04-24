@@ -1,10 +1,19 @@
-FROM contraslash/alpine-django-deploy-common
-RUN apk update
-RUN apk add --no-cache build-base jpeg-dev zlib-dev
-ENV LIBRARY_PATH=/lib:/usr/lib
+FROM python:3.7-alpine
 
-ENV PYTHONUNBUFFERED 1
+MAINTAINER ma0c <ma0@contraslash.com>
 
-RUN pip install --no-cache-dir pillow
+LABEL maintainer="ma0c <ma0@contraslash.com>" \
+    org.label-schema.name="Alpine Django Deploy Common with Pillow" \
+    org.label-schema.description="A base image to build Django images on top of Alpine Linux" \
+    org.label-schema.url="https://contraslash.com" \
+    org.label-schema.vcs-url="https://github.com/contraslash/docker-images/tree/master/alpine-django-deploy-common"
+
+RUN apk update && \
+    apk add --no-cache --virtual .build-deps linux-headers binutils gcc musl-dev build-base zlib-dev pcre-dev && \
+    apk add --no-cache jpeg-dev mariadb-dev mariadb-client jpeg-dev  uwsgi uwsgi-python3 && \
+    LIBRARY_PATH=/lib:/usr/lib pip install --no-cache-dir uwsgi==2.0.18 mysqlclient==1.4.2 pillow==6.0.0 && \
+    apk del .build-deps
+
+CMD ["python3"]
 
 CMD ["python3"]
