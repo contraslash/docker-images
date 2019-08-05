@@ -1,13 +1,14 @@
 # Alpine Django Deploy Common
 
-A minimal Alpine Linux Docker Image with the essential to deploy a common django project, that include Mysql and uWSGI to deploy.
+A minimal [Alpine Linux](https://alpinelinux.org/) Docker Image with the essential to deploy a common django project, that includes
+[mysqlclient](https://pypi.org/project/mysqlclient/) and [uWSGI](https://pypi.org/project/uWSGI/).
 
 ## Usage
 
 A proposed base `Dockerfile` for a django application
 
 ```dockerfile
-FROM contraslash/alpine-django-deploy-common:python3.7
+FROM contraslash/alpine-django-deploy-common:latest
 
 RUN mkdir /code
 WORKDIR /code
@@ -22,7 +23,7 @@ CMD ["uwsgi", "--ini", "uwsgi.ini"]
 
 ```
 
-Remember tu use the exact same version in your requirements.txt file
+Remember to use the exact same version in your requirements.txt file
 
 ```text
 mysqlclient==1.4.2 
@@ -31,7 +32,7 @@ uwsgi==2.0.18
 
 `uswgi.ini` is a uWSGI configuration file example and the entry point should be something like
 
-```
+```ini
 [uwsgi]
 module=django_project_name.wsgi:application
 master=True
@@ -44,17 +45,6 @@ harakiri=20
 single-interpreter=True
 enable-threads=True
 buffer-size=32768
-```
-
-
-
-Also this image uses mysql so, remember to create a database
-
-```sql
-CREATE DATABASE ${project_name};
-CREATE USER ${project_name}_user identified by '${random_password}';
-GRANT ALL PRIVILEGES ON ${project_name}.* to ${project_name}_user;
-FLUSH PRIVILEGES;
 ```
 
 ## Local building

@@ -1,6 +1,4 @@
-FROM python:3.7-alpine
-
-MAINTAINER ma0c <ma0@contraslash.com>
+FROM python:3.6-alpine
 
 LABEL maintainer="ma0c <ma0@contraslash.com>" \
     org.label-schema.name="Alpine Django Deploy Common" \

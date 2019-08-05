@@ -1,7 +1,5 @@
 FROM python:3.7-alpine
 
-MAINTAINER ma0c <ma0@contraslash.com>
-
 LABEL maintainer="ma0c <ma0@contraslash.com>" \
     org.label-schema.name="Alpine Django Deploy Common S3 Ready" \
     org.label-schema.description="A base image to build Django images on top of Alpine Linux" \

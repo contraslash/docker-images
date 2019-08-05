@@ -1,7 +1,7 @@
 # Alpine Django Deploy Common with Pillow
 
-A minimal Alpine Linux Docker Image with the essential to deploy a common django project, that include Mysql, Pillow and uWSGI to deploy.
-
+A minimal [Alpine Linux](https://alpinelinux.org/) Docker Image with the essential to deploy a common django project, 
+that include [mysqlclient](https://pypi.org/project/mysqlclient/) and [uWSGI](https://pypi.org/project/uWSGI/) and [Pillow](https://pypi.org/project/Pillow/).
 ## Usage
 
 A proposed base `Dockerfile` for a django application

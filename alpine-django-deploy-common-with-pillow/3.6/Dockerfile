@@ -1,6 +1,4 @@
-FROM python:3.7-alpine
-
-MAINTAINER ma0c <ma0@contraslash.com>
+FROM python:3.6-alpine
 
 LABEL maintainer="ma0c <ma0@contraslash.com>" \
     org.label-schema.name="Alpine Django Deploy Common with Pillow" \
@@ -13,7 +11,5 @@ RUN apk update && \
     apk add --no-cache jpeg-dev mariadb-dev mariadb-client jpeg-dev  uwsgi uwsgi-python3 && \
     LIBRARY_PATH=/lib:/usr/lib pip install --no-cache-dir uwsgi==2.0.18 mysqlclient==1.4.2 pillow==6.0.0 && \
     apk del .build-deps
-
-CMD ["python3"]
 
 CMD ["python3"]
