@@ -7,7 +7,7 @@ that include [mysqlclient](https://pypi.org/project/mysqlclient/) and [uWSGI](ht
 A proposed base `Dockerfile` for a django application
 
 ```dockerfile
-FROM contraslash/alpine-django-deploy-common:python3.7
+FROM contraslash/alpine-django-deploy-common-with-pillow:python3.7
 
 RUN mkdir /code
 WORKDIR /code

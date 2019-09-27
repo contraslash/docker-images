@@ -8,7 +8,7 @@ A minimal [Alpine Linux](https://alpinelinux.org/) Docker Image with the essenti
 A proposed base `Dockerfile` for a django application
 
 ```dockerfile
-FROM contraslash/alpine-django-deploy-common:latest
+FROM contraslash/alpine-django-deploy-common-postgres:latest
 
 RUN mkdir /code
 WORKDIR /code
