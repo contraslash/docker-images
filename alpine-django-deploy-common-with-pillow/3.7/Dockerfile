@@ -9,7 +9,7 @@ LABEL maintainer="ma0c <ma0@contraslash.com>" \
 RUN apk update && \
     apk add --no-cache --virtual .build-deps linux-headers binutils gcc musl-dev build-base zlib-dev pcre-dev && \
     apk add --no-cache jpeg-dev mariadb-dev mariadb-client jpeg-dev  uwsgi uwsgi-python3 && \
-    LIBRARY_PATH=/lib:/usr/lib pip install --no-cache-dir uwsgi==2.0.18 mysqlclient==1.4.2 pillow==6.0.2 && \
+    LIBRARY_PATH=/lib:/usr/lib pip install --no-cache-dir uwsgi==2.0.18 mysqlclient==1.4.2 pillow==6.2.0 && \
     apk del .build-deps
 
 CMD ["python3"]
