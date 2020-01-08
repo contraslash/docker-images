@@ -25,9 +25,9 @@ CMD ["uwsgi", "--ini", "uwsgi.ini"]
 Remember tu use the exact same version in your requirements.txt file
 
 ```text
-mysqlclient==1.4.2 
-pillow==6.0.0
-uwsgi==2.0.18 
+mysqlclient==1.4.2
+pillow==6.0.2
+uwsgi==2.0.18
 
 ```
 
